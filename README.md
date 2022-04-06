@@ -3,8 +3,6 @@
 This utility program allows to derive the public key for a `libp2p` [PeerId](https://docs.rs/libp2p/0.44.0/libp2p/core/struct.PeerId.html) encoded as a _base58_ string.
 Such "inverse" conversion is possible due to the fact that the [Multihash](https://docs.rs/multihash/0.16.2/multihash/struct.MultihashGeneric.html) hashing algorithm used for creating the `PeerId` based on a valid `Ed25519` public key is, in fact, the [Identity](https://docs.rs/multihash/0.16.2/multihash/struct.IdentityHasher.html) transform.
 
-<br>
-
 ## Building the app
 
 1. Navigate to the project root directory:
@@ -24,19 +22,16 @@ Such "inverse" conversion is possible due to the fact that the [Multihash](https
     ```bash
     $ cp ./target/release/peerid2pubkey /usr/local/bin/
     ```
-<br>
 
 ## Running the program
 
 The program accepts two types of inputs:
 - a file with _base58_ encoded peer IDs (one per line), or
-- an arbitrary number of base58 encoded peer IDs as command line arguments.
+- an arbitrary number of _base58_ encoded peer IDs as command line arguments.
 
 The output is written into the standard output. Each peer ID from the input will have a corresponding line in the output. Mixing files and actual peer IDs is also possible, however, extra care is required to match inputs to the outputs.
 
 In case of an error the `"invalid input"` message will be written in place of the expected respective output.
-
-<br>
 
 ## Examples
 
